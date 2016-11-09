@@ -28,7 +28,7 @@ public class Main {
         String dicionario = "";
         long nTentativas = 0;
         String textoEncriptado = "6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==";
-        //String textoEncriptado = "IZSsvLk8Z2C3NrbqP6GlQ791puzvLAuWtBCpriJ3gp47/qlf61+H0/FtNe/plKB5ooEzsT9iSskqEUqOl0JBDg==";
+        //String textoEncriptado = "3dvO+tiep8KZSWBliIgiHCzhYZVkNjZjbocFck3n0Vn3n2IMP0fCyJ+PSfDmQWlf2hg/b57zDHqXNC0pZeeduw==";
         String textoDecriptado = "";
         String chave = "";
         List<BruteForce> nBruteForce = new ArrayList<BruteForce>();
@@ -382,6 +382,14 @@ public class Main {
         for (BruteForce bf : nBruteForce) {
             bf.pausa();
             nTentativas += bf.tentativas;
+        }
+        
+        for (Thread th : nThread) {
+            try {
+                th.join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         long tempoFinal = System.currentTimeMillis();

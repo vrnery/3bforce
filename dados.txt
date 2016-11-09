@@ -1,6 +1,6 @@
 Decriptar Mensagem
-Texto Encriptado: 6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==
-Texto Descriptado: 
-Chave: 
-Número de tentativas: 59
-Tempo de execução: 0,041 ms
+Texto Encriptado: 3dvO+tiep8KZSWBliIgiHCzhYZVkNjZjbocFck3n0Vn3n2IMP0fCyJ+PSfDmQWlf2hg/b57zDHqXNC0pZeeduw==
+Texto Descriptado: Gurizada esse eh um teste exemplo de encriptação com AES
+Chave: 12pingpong000056
+Número de tentativas: 9165
+Tempo de execução: 1,911 ms

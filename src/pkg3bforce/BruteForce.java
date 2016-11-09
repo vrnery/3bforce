@@ -57,16 +57,16 @@ public class BruteForce implements Runnable {
     }
 
     public void force(int inicio, int fim) {
-        for (int k = inicio; k < fim; k++) {
-            for (int l = 0; l < dicionario.length(); l++) {
-                for (int m = 0; m < dicionario.length(); m++) {
-                    for (int n = 0; n < dicionario.length(); n++) {
-                        for (int o = 0; o < dicionario.length(); o++) {
-                            for (int p = 0; p < dicionario.length(); p++) {
-                                for (int q = 0; q < dicionario.length(); q++) {
-                                    for (int r = 0; r < dicionario.length(); r++) {
-                                        for (int s = 0; s < dicionario.length(); s++) {
-                                            for (int t = 0; t < dicionario.length(); t++) {
+//        for (int k = inicio; k < fim; k++) {
+//            for (int l = 0; l < dicionario.length(); l++) {
+//                for (int m = 0; m < dicionario.length(); m++) {
+//                    for (int n = 0; n < dicionario.length(); n++) {
+//                        for (int o = 0; o < dicionario.length(); o++) {
+//                            for (int p = 0; p < dicionario.length(); p++) {
+//                                for (int q = 0; q < dicionario.length(); q++) {
+//                                    for (int r = 0; r < dicionario.length(); r++) {
+//                                        for (int s = 0; s < dicionario.length(); s++) {
+//                                            for (int t = 0; t < dicionario.length(); t++) {
                                                 for (int u = inicio; u < fim; u++) {
 //                                                for (int u = 0; u < dicionario.length(); u++) {
                                                     for (int v = 0; v < dicionario.length(); v++) {
@@ -104,7 +104,7 @@ public class BruteForce implements Runnable {
                                                                         } catch (Exception ex) {
                                                                             //Logger.getLogger(BruteForce.class.getName()).log(Level.SEVERE, null, ex);
                                                                         }
-                                                                        if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                                                        if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste")) || (this.finalizado)) {
                                                                             this.finalizado = true;
                                                                             try {
                                                                                 Thread.currentThread().wait();
@@ -117,18 +117,18 @@ public class BruteForce implements Runnable {
                                                             }
                                                         }
                                                     }
+                                                    System.out.println("Thread: " + Thread.currentThread().getName());
                                                 }
-                                                break;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
         this.finalizado = true;
     }
 
@@ -163,14 +163,6 @@ public class BruteForce implements Runnable {
     }
     
     public void pausa() {
-        try {
-            try {
-                Thread.currentThread().wait();
-            } catch (InterruptedException ex) {
-                //Logger.getLogger(BruteForce.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (IllegalMonitorStateException exs) {
-            
-        }
+        this.finalizado = true;
     }
 }
