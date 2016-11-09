@@ -67,22 +67,24 @@ public class BruteForce implements Runnable {
                                     for (int r = 0; r < dicionario.length(); r++) {
                                         for (int s = 0; s < dicionario.length(); s++) {
                                             for (int t = 0; t < dicionario.length(); t++) {
-                                                for (int u = 0; u < dicionario.length(); u++) {
+                                                for (int u = inicio; u < fim; u++) {
+//                                                for (int u = 0; u < dicionario.length(); u++) {
                                                     for (int v = 0; v < dicionario.length(); v++) {
                                                         for (int w = 0; w < dicionario.length(); w++) {
                                                             for (int x = 0; x < dicionario.length(); x++) {
                                                                 for (int y = 0; y < dicionario.length(); y++) {
                                                                     for (int z = 0; z < dicionario.length(); z++) {
-                                                                        this.chave = dicionario.charAt(k) + ""
-                                                                                + dicionario.charAt(l) + ""
-                                                                                + dicionario.charAt(m) + ""
-                                                                                + dicionario.charAt(n) + ""
-                                                                                + dicionario.charAt(o) + ""
-                                                                                + dicionario.charAt(p) + ""
-                                                                                + dicionario.charAt(q) + ""
-                                                                                + dicionario.charAt(r) + ""
-                                                                                + dicionario.charAt(s) + ""
-                                                                                + dicionario.charAt(t) + ""
+//                                                                        this.chave = dicionario.charAt(k) + ""
+//                                                                                + dicionario.charAt(l) + ""
+//                                                                                + dicionario.charAt(m) + ""
+//                                                                                + dicionario.charAt(n) + ""
+//                                                                                + dicionario.charAt(o) + ""
+//                                                                                + dicionario.charAt(p) + ""
+//                                                                                + dicionario.charAt(q) + ""
+//                                                                                + dicionario.charAt(r) + ""
+//                                                                                + dicionario.charAt(s) + ""
+//                                                                                + dicionario.charAt(t) + ""
+                                                                        this.chave = "12pingpong"                
                                                                                 + dicionario.charAt(u) + ""
                                                                                 + dicionario.charAt(v) + ""
                                                                                 + dicionario.charAt(w) + ""
@@ -116,6 +118,7 @@ public class BruteForce implements Runnable {
                                                         }
                                                     }
                                                 }
+                                                break;
                                             }
                                         }
                                     }
