@@ -129,7 +129,7 @@ public class BruteForce implements Runnable {
 //                }
 //            }
 //        }
-        this.finalizado = true;
+//        this.finalizado = true;
     }
 
     //funcao para gerar key de encriptação a partir da chave do usuário
