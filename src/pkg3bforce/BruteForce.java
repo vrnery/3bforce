@@ -9,8 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import sun.misc.*;
 
 /**
  *
@@ -103,7 +102,7 @@ public class BruteForce implements Runnable {
                                                                         } catch (Exception ex) {
                                                                             //Logger.getLogger(BruteForce.class.getName()).log(Level.SEVERE, null, ex);
                                                                         }
-                                                                        if ((!textoDecriptado.equals("")) && (textoDecriptado.equals("Gurizada esse eh um teste exemplo de encriptação com AES"))) {
+                                                                        if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
                                                                             this.finalizado = true;
                                                                             try {
                                                                                 Thread.currentThread().wait();

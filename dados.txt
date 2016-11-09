@@ -1,0 +1,6 @@
+Decriptar Mensagem
+Texto Encriptado: IZSsvLk8Z2C3NrbqP6GlQ791puzvLAuWtBCpriJ3gp47/qlf61+H0/FtNe/plKB5ooEzsT9iSskqEUqOl0JBDg==
+Texto Descriptado: Gurizada esse eh um teste exemplo de encriptação com AES
+Chave: 0000000000000056
+Número de tentativas: 1611
+Tempo de execução: 0,814 ms

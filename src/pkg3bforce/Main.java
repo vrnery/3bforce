@@ -5,6 +5,9 @@
  */
 package pkg3bforce;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +27,8 @@ public class Main {
         System.out.println("Quebrar por Força Bruta v.1");
         String dicionario = "";
         int nTentativas = 0;
-        String textoEncriptado = "IZSsvLk8Z2C3NrbqP6GlQ791puzvLAuWtBCpriJ3gp47/qlf61+H0/FtNe/plKB5ooEzsT9iSskqEUqOl0JBDg==";
+        String textoEncriptado = "6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==";
+        //String textoEncriptado = "IZSsvLk8Z2C3NrbqP6GlQ791puzvLAuWtBCpriJ3gp47/qlf61+H0/FtNe/plKB5ooEzsT9iSskqEUqOl0JBDg==";
         String textoDecriptado = "";
         String chave = "";
         List<BruteForce> nBruteForce = new ArrayList<BruteForce>();
@@ -87,6 +91,7 @@ public class Main {
                     terminado = true;
                     textoDecriptado = bf.textoDecriptado;
                     chave = bf.chave;
+                    nTentativas += bf.tentativas;
                     nBruteForce.remove(bf);
                     break;
                 }
@@ -95,20 +100,28 @@ public class Main {
 
         for (BruteForce bf : nBruteForce) {
             bf.pausa();
-        }
-        
-        for (Thread th : nThread) {
-            try {
-                th.join();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            nTentativas += bf.tentativas;
         }
 
         long tempoFinal = System.currentTimeMillis();
         System.out.println("Mensagem: " + textoDecriptado);
         System.out.println("Chave: " + chave);
         System.out.printf("%.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
+        
+        try {
+            FileWriter arq = new FileWriter("dados.txt");
+            PrintWriter gravar = new PrintWriter(arq);
+            gravar.println("Decriptar Mensagem");
+            gravar.println("Texto Encriptado: " + textoEncriptado);
+            gravar.println("Texto Descriptado: " + textoDecriptado);
+            gravar.println("Chave: " + chave);
+            gravar.println("Número de tentativas: " + nTentativas);
+            gravar.printf("Tempo de execução: %.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
+            arq.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }
