@@ -2,5 +2,6 @@ Decriptar Mensagem
 Texto Encriptado: 3dvO+tiep8KZSWBliIgiHCzhYZVkNjZjbocFck3n0Vn3n2IMP0fCyJ+PSfDmQWlf2hg/b57zDHqXNC0pZeeduw==
 Texto Descriptado: Gurizada esse eh um teste exemplo de encriptação com AES
 Chave: 12pingpong000056
-Número de tentativas: 9165
-Tempo de execução: 1,911 ms
+Número de tentativas: 10318
+Inicio: Wed Nov 09 17:57:23 BRST 2016 Termino: Wed Nov 09 17:57:25 BRST 2016
+Tempo de execução: 1,785 ms

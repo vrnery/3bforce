@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -405,6 +406,7 @@ public class Main {
             gravar.println("Texto Descriptado: " + textoDecriptado);
             gravar.println("Chave: " + chave);
             gravar.println("Número de tentativas: " + nTentativas);
+            gravar.println("Inicio: " + new Date(tempoInicial) + " Termino: " + new Date(tempoFinal));
             gravar.printf("Tempo de execução: %.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
             arq.close();
         } catch (IOException ex) {
