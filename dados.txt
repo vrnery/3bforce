@@ -1,7 +1,7 @@
 Decriptar Mensagem
-Texto Encriptado: 3dvO+tiep8KZSWBliIgiHCzhYZVkNjZjbocFck3n0Vn3n2IMP0fCyJ+PSfDmQWlf2hg/b57zDHqXNC0pZeeduw==
-Texto Descriptado: Gurizada esse eh um teste exemplo de encriptação com AES
-Chave: 12pingpong000056
-Número de tentativas: 10318
-Inicio: Wed Nov 09 17:57:23 BRST 2016 Termino: Wed Nov 09 17:57:25 BRST 2016
-Tempo de execução: 1,785 ms
+Texto Encriptado: 6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==
+Texto Descriptado: 
+Chave: 
+Número de tentativas: 0
+Inicio: Wed Nov 09 21:16:21 BRST 2016 Termino: Wed Nov 09 21:16:21 BRST 2016
+Tempo de execução: 0,003 ms

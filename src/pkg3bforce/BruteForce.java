@@ -22,6 +22,7 @@ public class BruteForce implements Runnable {
     public String dicionario;
     public String textoEncriptado;
     public String chave = "";
+    public String parcial = "";
     public int nInicio;
     public int nFinal;
     public volatile int tentativas = 0;
@@ -40,11 +41,12 @@ public class BruteForce implements Runnable {
         return tentativas;
     }
 
-    public BruteForce(String dic, String texto, int nInicio, int nFinal) {
+    public BruteForce(String dic, String texto, int nInicio, int nFinal, String par) {
         this.dicionario = dic;
         this.textoEncriptado = texto;
         this.nInicio = nInicio;
         this.nFinal = nFinal;
+        this.parcial = par;
     }
 
     @Override
@@ -67,10 +69,11 @@ public class BruteForce implements Runnable {
 //                                    for (int r = 0; r < dicionario.length(); r++) {
 //                                        for (int s = 0; s < dicionario.length(); s++) {
 //                                            for (int t = 0; t < dicionario.length(); t++) {
-                                                for (int u = inicio; u < fim; u++) {
+                                                //for (int u = inicio; u < fim; u++) {
 //                                                for (int u = 0; u < dicionario.length(); u++) {
-                                                    for (int v = 0; v < dicionario.length(); v++) {
-                                                        for (int w = 0; w < dicionario.length(); w++) {
+                                                    //for (int v = 0; v < dicionario.length(); v++) {
+                                                        for (int w = inicio; w < fim; w++) {
+                                                        //for (int w = 0; w < dicionario.length(); w++) {
                                                             for (int x = 0; x < dicionario.length(); x++) {
                                                                 for (int y = 0; y < dicionario.length(); y++) {
                                                                     for (int z = 0; z < dicionario.length(); z++) {
@@ -84,9 +87,10 @@ public class BruteForce implements Runnable {
 //                                                                                + dicionario.charAt(r) + ""
 //                                                                                + dicionario.charAt(s) + ""
 //                                                                                + dicionario.charAt(t) + ""
-                                                                        this.chave = "12pingpong"                
-                                                                                + dicionario.charAt(u) + ""
-                                                                                + dicionario.charAt(v) + ""
+                                                                        this.chave = "12pingpong"
+                                                                                + this.parcial
+                                                                                //+ dicionario.charAt(u) + ""
+                                                                                //+ dicionario.charAt(v) + ""
                                                                                 + dicionario.charAt(w) + ""
                                                                                 + dicionario.charAt(x) + ""
                                                                                 + dicionario.charAt(y) + ""
@@ -115,10 +119,11 @@ public class BruteForce implements Runnable {
                                                                     }
                                                                 }
                                                             }
+                                                            System.out.println("Thread: " + Thread.currentThread().getName());
                                                         }
-                                                    }
-                                                    System.out.println("Thread: " + Thread.currentThread().getName());
-                                                }
+                                                    //}
+                                                    
+                                                //}
 //                                            }
 //                                        }
 //                                    }

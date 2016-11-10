@@ -34,6 +34,7 @@ public class Main {
         String chave = "";
         List<BruteForce> nBruteForce = new ArrayList<BruteForce>();
         List<Thread> nThread = new ArrayList<Thread>();
+        List<Thread> npThread = new ArrayList<Thread>();
 
         // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
         for (int i = 48; i < 58; i++) {
@@ -48,168 +49,168 @@ public class Main {
             dicionario += ((char) i);
         }
 
-        int n4 = 0;
-        int n1Possibilidade = dicionario.length();
-
-        if (n1Possibilidade % 2 == 0) {
-            n4 = n1Possibilidade / 30;
-        } else {
-            n4 = (n1Possibilidade - 1) / 30;
-            System.out.println("n4*30, n4*30+1");
-            BruteForce bf60 = new BruteForce(dicionario, textoEncriptado, (n4 * 30), (n4 * 30 + 1));
-            nBruteForce.add(bf60);
-            nThread.add(new Thread(bf60));
-        }
-
-        System.out.println("0 = " + dicionario.charAt(0) + ", n4 = " + dicionario.charAt(n4));
-        BruteForce bf0 = new BruteForce(dicionario, textoEncriptado, 0, n4);
-        nBruteForce.add(bf0);
-        nThread.add(new Thread(bf0));
-
-        System.out.println("n4 = " + dicionario.charAt(n4) + ", n4*2 = " + dicionario.charAt((n4 * 2)));
-        BruteForce bf1 = new BruteForce(dicionario, textoEncriptado, n4, (n4 * 2));
-        nBruteForce.add(bf1);
-        nThread.add(new Thread(bf1));
-
-        System.out.println("n4*2 = " + dicionario.charAt((n4 * 2)) + ", n4*3 = " + dicionario.charAt((n4 * 3)));
-        BruteForce bf2 = new BruteForce(dicionario, textoEncriptado, (n4 * 2), (n4 * 3));
-        nBruteForce.add(bf2);
-        nThread.add(new Thread(bf2));
-
-        System.out.println("n4*3 = " + dicionario.charAt((n4 * 3)) + ", n4*4 = " + dicionario.charAt((n4 * 4)));
-        BruteForce bf3 = new BruteForce(dicionario, textoEncriptado, (n4 * 3), (n4 * 4));
-        nBruteForce.add(bf3);
-        nThread.add(new Thread(bf3));
-        
-        System.out.println("n4*4 = " + dicionario.charAt((n4 * 4)) + ", n4*5 = " + dicionario.charAt((n4 * 5)));
-        BruteForce bf4 = new BruteForce(dicionario, textoEncriptado, (n4 * 4), (n4 * 5));
-        nBruteForce.add(bf4);
-        nThread.add(new Thread(bf4));
-        
-        System.out.println("n4*5 = " + dicionario.charAt((n4 * 5)) + ", n4*6 = " + dicionario.charAt((n4 * 6)));
-        BruteForce bf5 = new BruteForce(dicionario, textoEncriptado, (n4 * 5), (n4 * 6));
-        nBruteForce.add(bf5);
-        nThread.add(new Thread(bf5));
-        
-        System.out.println("n4*6 = " + dicionario.charAt((n4 * 6)) + ", n4*7 = " + dicionario.charAt((n4 * 7)));
-        BruteForce bf6 = new BruteForce(dicionario, textoEncriptado, (n4 * 6), (n4 * 7));
-        nBruteForce.add(bf6);
-        nThread.add(new Thread(bf6));
-        
-        System.out.println("n4*7 = " + dicionario.charAt((n4 * 7)) + ", n4*8 = " + dicionario.charAt((n4 * 8)));
-        BruteForce bf7 = new BruteForce(dicionario, textoEncriptado, (n4 * 7), (n4 * 8));
-        nBruteForce.add(bf7);
-        nThread.add(new Thread(bf7));
-        
-        System.out.println("n4*8 = " + dicionario.charAt((n4 * 8)) + ", n4*9 = " + dicionario.charAt((n4 * 9)));
-        BruteForce bf8 = new BruteForce(dicionario, textoEncriptado, (n4 * 8), (n4 * 9));
-        nBruteForce.add(bf8);
-        nThread.add(new Thread(bf8));
-        
-        System.out.println("n4*9 = " + dicionario.charAt((n4 * 9)) + ", n4*10 = " + dicionario.charAt((n4 * 10)));
-        BruteForce bf9 = new BruteForce(dicionario, textoEncriptado, (n4 * 9), (n4 * 10));
-        nBruteForce.add(bf9);
-        nThread.add(new Thread(bf9));
-        
-        System.out.println("n4*10 = " + dicionario.charAt((n4 * 10)) + ", n4*11 = " + dicionario.charAt((n4 * 11)));
-        BruteForce bf10 = new BruteForce(dicionario, textoEncriptado, (n4 * 10), (n4 * 11));
-        nBruteForce.add(bf10);
-        nThread.add(new Thread(bf10));
-        
-        System.out.println("n4*11 = " + dicionario.charAt((n4 * 11)) + ", n4*12 = " + dicionario.charAt((n4 * 12)));
-        BruteForce bf11 = new BruteForce(dicionario, textoEncriptado, (n4 * 11), (n4 * 12));
-        nBruteForce.add(bf11);
-        nThread.add(new Thread(bf11));
-        
-        System.out.println("n4*12 = " + dicionario.charAt((n4 * 12)) + ", n4*13 = " + dicionario.charAt((n4 * 13)));
-        BruteForce bf12 = new BruteForce(dicionario, textoEncriptado, (n4 * 12), (n4 * 13));
-        nBruteForce.add(bf12);
-        nThread.add(new Thread(bf12));
-        
-        System.out.println("n4*13 = " + dicionario.charAt((n4 * 13)) + ", n4*14 = " + dicionario.charAt((n4 * 14)));
-        BruteForce bf13 = new BruteForce(dicionario, textoEncriptado, (n4 * 13), (n4 * 14));
-        nBruteForce.add(bf13);
-        nThread.add(new Thread(bf13));
-        
-        System.out.println("n4*14 = " + dicionario.charAt((n4 * 14)) + ", n4*15 = " + dicionario.charAt((n4 * 15)));
-        BruteForce bf14 = new BruteForce(dicionario, textoEncriptado, (n4 * 14), (n4 * 15));
-        nBruteForce.add(bf14);
-        nThread.add(new Thread(bf14));
-        
-        System.out.println("n4*15 = " + dicionario.charAt((n4 * 15)) + ", n4*16 = " + dicionario.charAt((n4 * 16)));
-        BruteForce bf15 = new BruteForce(dicionario, textoEncriptado, (n4 * 15), (n4 * 16));
-        nBruteForce.add(bf15);
-        nThread.add(new Thread(bf15));
-        
-        System.out.println("n4*16 = " + dicionario.charAt((n4 * 16)) + ", n4*17 = " + dicionario.charAt((n4 * 17)));
-        BruteForce bf16 = new BruteForce(dicionario, textoEncriptado, (n4 * 16), (n4 * 17));
-        nBruteForce.add(bf16);
-        nThread.add(new Thread(bf16));
-        
-        System.out.println("n4*17 = " + dicionario.charAt((n4 * 17)) + ", n4*18 = " + dicionario.charAt((n4 * 18)));
-        BruteForce bf17 = new BruteForce(dicionario, textoEncriptado, (n4 * 17), (n4 * 18));
-        nBruteForce.add(bf17);
-        nThread.add(new Thread(bf17));
-        
-        System.out.println("n4*18 = " + dicionario.charAt((n4 * 18)) + ", n4*19 = " + dicionario.charAt((n4 * 19)));
-        BruteForce bf18 = new BruteForce(dicionario, textoEncriptado, (n4 * 18), (n4 * 19));
-        nBruteForce.add(bf18);
-        nThread.add(new Thread(bf18));
-        
-        System.out.println("n4*19 = " + dicionario.charAt((n4 * 19)) + ", n4*20 = " + dicionario.charAt((n4 * 20)));
-        BruteForce bf19 = new BruteForce(dicionario, textoEncriptado, (n4 * 19), (n4 * 20));
-        nBruteForce.add(bf19);
-        nThread.add(new Thread(bf19));
-        
-        System.out.println("n4*20 = " + dicionario.charAt((n4 * 20)) + ", n4*21 = " + dicionario.charAt((n4 * 21)));
-        BruteForce bf20 = new BruteForce(dicionario, textoEncriptado, (n4 * 20), (n4 * 21));
-        nBruteForce.add(bf20);
-        nThread.add(new Thread(bf20));
-        
-        System.out.println("n4*21 = " + dicionario.charAt((n4 * 21)) + ", n4*22 = " + dicionario.charAt((n4 * 22)));
-        BruteForce bf21 = new BruteForce(dicionario, textoEncriptado, (n4 * 21), (n4 * 22));
-        nBruteForce.add(bf21);
-        nThread.add(new Thread(bf21));
-        
-        System.out.println("n4*22 = " + dicionario.charAt((n4 * 22)) + ", n4*23 = " + dicionario.charAt((n4 * 23)));
-        BruteForce bf22 = new BruteForce(dicionario, textoEncriptado, (n4 * 22), (n4 * 23));
-        nBruteForce.add(bf22);
-        nThread.add(new Thread(bf22));
-        
-        System.out.println("n4*23 = " + dicionario.charAt((n4 * 23)) + ", n4*24 = " + dicionario.charAt((n4 * 24)));
-        BruteForce bf23 = new BruteForce(dicionario, textoEncriptado, (n4 * 23), (n4 * 24));
-        nBruteForce.add(bf23);
-        nThread.add(new Thread(bf23));
-        
-        System.out.println("n4*24 = " + dicionario.charAt((n4 * 24)) + ", n4*25 = " + dicionario.charAt((n4 * 25)));
-        BruteForce bf24 = new BruteForce(dicionario, textoEncriptado, (n4 * 24), (n4 * 25));
-        nBruteForce.add(bf24);
-        nThread.add(new Thread(bf24));
-        
-        System.out.println("n4*25 = " + dicionario.charAt((n4 * 25)) + ", n4*26 = " + dicionario.charAt((n4 * 26)));
-        BruteForce bf25 = new BruteForce(dicionario, textoEncriptado, (n4 * 25), (n4 * 26));
-        nBruteForce.add(bf25);
-        nThread.add(new Thread(bf25));
-        
-        System.out.println("n4*26 = " + dicionario.charAt((n4 * 26)) + ", n4*27 = " + dicionario.charAt((n4 * 27)));
-        BruteForce bf26 = new BruteForce(dicionario, textoEncriptado, (n4 * 26), (n4 * 27));
-        nBruteForce.add(bf26);
-        nThread.add(new Thread(bf26));
-        
-        System.out.println("n4*27 = " + dicionario.charAt((n4 * 27)) + ", n4*28 = " + dicionario.charAt((n4 * 28)));
-        BruteForce bf27 = new BruteForce(dicionario, textoEncriptado, (n4 * 27), (n4 * 28));
-        nBruteForce.add(bf27);
-        nThread.add(new Thread(bf27));
-        
-        System.out.println("n4*28 = " + dicionario.charAt((n4 * 28)) + ", n4*29 = " + dicionario.charAt((n4 * 29)));
-        BruteForce bf28 = new BruteForce(dicionario, textoEncriptado, (n4 * 28), (n4 * 29));
-        nBruteForce.add(bf28);
-        nThread.add(new Thread(bf28));
-        
-        System.out.println("n4*29 = " + dicionario.charAt((n4 * 29)) + ", n4*30 = " + dicionario.charAt((n4 * 30)));
-        BruteForce bf29 = new BruteForce(dicionario, textoEncriptado, (n4 * 29), (n4 * 30));
-        nBruteForce.add(bf29);
-        nThread.add(new Thread(bf29));
+//        int n4 = 0;
+//        int n1Possibilidade = dicionario.length();
+//
+//        if (n1Possibilidade % 2 == 0) {
+//            n4 = n1Possibilidade / 30;
+//        } else {
+//            n4 = (n1Possibilidade - 1) / 30;
+//            System.out.println("n4*30, n4*30+1");
+//            BruteForce bf60 = new BruteForce(dicionario, textoEncriptado, (n4 * 30), (n4 * 30 + 1));
+//            nBruteForce.add(bf60);
+//            nThread.add(new Thread(bf60));
+//        }
+//
+//        System.out.println("0 = " + dicionario.charAt(0) + ", n4 = " + dicionario.charAt(n4));
+//        BruteForce bf0 = new BruteForce(dicionario, textoEncriptado, 0, n4);
+//        nBruteForce.add(bf0);
+//        nThread.add(new Thread(bf0));
+//
+//        System.out.println("n4 = " + dicionario.charAt(n4) + ", n4*2 = " + dicionario.charAt((n4 * 2)));
+//        BruteForce bf1 = new BruteForce(dicionario, textoEncriptado, n4, (n4 * 2));
+//        nBruteForce.add(bf1);
+//        nThread.add(new Thread(bf1));
+//
+//        System.out.println("n4*2 = " + dicionario.charAt((n4 * 2)) + ", n4*3 = " + dicionario.charAt((n4 * 3)));
+//        BruteForce bf2 = new BruteForce(dicionario, textoEncriptado, (n4 * 2), (n4 * 3));
+//        nBruteForce.add(bf2);
+//        nThread.add(new Thread(bf2));
+//
+//        System.out.println("n4*3 = " + dicionario.charAt((n4 * 3)) + ", n4*4 = " + dicionario.charAt((n4 * 4)));
+//        BruteForce bf3 = new BruteForce(dicionario, textoEncriptado, (n4 * 3), (n4 * 4));
+//        nBruteForce.add(bf3);
+//        nThread.add(new Thread(bf3));
+//        
+//        System.out.println("n4*4 = " + dicionario.charAt((n4 * 4)) + ", n4*5 = " + dicionario.charAt((n4 * 5)));
+//        BruteForce bf4 = new BruteForce(dicionario, textoEncriptado, (n4 * 4), (n4 * 5));
+//        nBruteForce.add(bf4);
+//        nThread.add(new Thread(bf4));
+//        
+//        System.out.println("n4*5 = " + dicionario.charAt((n4 * 5)) + ", n4*6 = " + dicionario.charAt((n4 * 6)));
+//        BruteForce bf5 = new BruteForce(dicionario, textoEncriptado, (n4 * 5), (n4 * 6));
+//        nBruteForce.add(bf5);
+//        nThread.add(new Thread(bf5));
+//        
+//        System.out.println("n4*6 = " + dicionario.charAt((n4 * 6)) + ", n4*7 = " + dicionario.charAt((n4 * 7)));
+//        BruteForce bf6 = new BruteForce(dicionario, textoEncriptado, (n4 * 6), (n4 * 7));
+//        nBruteForce.add(bf6);
+//        nThread.add(new Thread(bf6));
+//        
+//        System.out.println("n4*7 = " + dicionario.charAt((n4 * 7)) + ", n4*8 = " + dicionario.charAt((n4 * 8)));
+//        BruteForce bf7 = new BruteForce(dicionario, textoEncriptado, (n4 * 7), (n4 * 8));
+//        nBruteForce.add(bf7);
+//        nThread.add(new Thread(bf7));
+//        
+//        System.out.println("n4*8 = " + dicionario.charAt((n4 * 8)) + ", n4*9 = " + dicionario.charAt((n4 * 9)));
+//        BruteForce bf8 = new BruteForce(dicionario, textoEncriptado, (n4 * 8), (n4 * 9));
+//        nBruteForce.add(bf8);
+//        nThread.add(new Thread(bf8));
+//        
+//        System.out.println("n4*9 = " + dicionario.charAt((n4 * 9)) + ", n4*10 = " + dicionario.charAt((n4 * 10)));
+//        BruteForce bf9 = new BruteForce(dicionario, textoEncriptado, (n4 * 9), (n4 * 10));
+//        nBruteForce.add(bf9);
+//        nThread.add(new Thread(bf9));
+//        
+//        System.out.println("n4*10 = " + dicionario.charAt((n4 * 10)) + ", n4*11 = " + dicionario.charAt((n4 * 11)));
+//        BruteForce bf10 = new BruteForce(dicionario, textoEncriptado, (n4 * 10), (n4 * 11));
+//        nBruteForce.add(bf10);
+//        nThread.add(new Thread(bf10));
+//        
+//        System.out.println("n4*11 = " + dicionario.charAt((n4 * 11)) + ", n4*12 = " + dicionario.charAt((n4 * 12)));
+//        BruteForce bf11 = new BruteForce(dicionario, textoEncriptado, (n4 * 11), (n4 * 12));
+//        nBruteForce.add(bf11);
+//        nThread.add(new Thread(bf11));
+//        
+//        System.out.println("n4*12 = " + dicionario.charAt((n4 * 12)) + ", n4*13 = " + dicionario.charAt((n4 * 13)));
+//        BruteForce bf12 = new BruteForce(dicionario, textoEncriptado, (n4 * 12), (n4 * 13));
+//        nBruteForce.add(bf12);
+//        nThread.add(new Thread(bf12));
+//        
+//        System.out.println("n4*13 = " + dicionario.charAt((n4 * 13)) + ", n4*14 = " + dicionario.charAt((n4 * 14)));
+//        BruteForce bf13 = new BruteForce(dicionario, textoEncriptado, (n4 * 13), (n4 * 14));
+//        nBruteForce.add(bf13);
+//        nThread.add(new Thread(bf13));
+//        
+//        System.out.println("n4*14 = " + dicionario.charAt((n4 * 14)) + ", n4*15 = " + dicionario.charAt((n4 * 15)));
+//        BruteForce bf14 = new BruteForce(dicionario, textoEncriptado, (n4 * 14), (n4 * 15));
+//        nBruteForce.add(bf14);
+//        nThread.add(new Thread(bf14));
+//        
+//        System.out.println("n4*15 = " + dicionario.charAt((n4 * 15)) + ", n4*16 = " + dicionario.charAt((n4 * 16)));
+//        BruteForce bf15 = new BruteForce(dicionario, textoEncriptado, (n4 * 15), (n4 * 16));
+//        nBruteForce.add(bf15);
+//        nThread.add(new Thread(bf15));
+//        
+//        System.out.println("n4*16 = " + dicionario.charAt((n4 * 16)) + ", n4*17 = " + dicionario.charAt((n4 * 17)));
+//        BruteForce bf16 = new BruteForce(dicionario, textoEncriptado, (n4 * 16), (n4 * 17));
+//        nBruteForce.add(bf16);
+//        nThread.add(new Thread(bf16));
+//        
+//        System.out.println("n4*17 = " + dicionario.charAt((n4 * 17)) + ", n4*18 = " + dicionario.charAt((n4 * 18)));
+//        BruteForce bf17 = new BruteForce(dicionario, textoEncriptado, (n4 * 17), (n4 * 18));
+//        nBruteForce.add(bf17);
+//        nThread.add(new Thread(bf17));
+//        
+//        System.out.println("n4*18 = " + dicionario.charAt((n4 * 18)) + ", n4*19 = " + dicionario.charAt((n4 * 19)));
+//        BruteForce bf18 = new BruteForce(dicionario, textoEncriptado, (n4 * 18), (n4 * 19));
+//        nBruteForce.add(bf18);
+//        nThread.add(new Thread(bf18));
+//        
+//        System.out.println("n4*19 = " + dicionario.charAt((n4 * 19)) + ", n4*20 = " + dicionario.charAt((n4 * 20)));
+//        BruteForce bf19 = new BruteForce(dicionario, textoEncriptado, (n4 * 19), (n4 * 20));
+//        nBruteForce.add(bf19);
+//        nThread.add(new Thread(bf19));
+//        
+//        System.out.println("n4*20 = " + dicionario.charAt((n4 * 20)) + ", n4*21 = " + dicionario.charAt((n4 * 21)));
+//        BruteForce bf20 = new BruteForce(dicionario, textoEncriptado, (n4 * 20), (n4 * 21));
+//        nBruteForce.add(bf20);
+//        nThread.add(new Thread(bf20));
+//        
+//        System.out.println("n4*21 = " + dicionario.charAt((n4 * 21)) + ", n4*22 = " + dicionario.charAt((n4 * 22)));
+//        BruteForce bf21 = new BruteForce(dicionario, textoEncriptado, (n4 * 21), (n4 * 22));
+//        nBruteForce.add(bf21);
+//        nThread.add(new Thread(bf21));
+//        
+//        System.out.println("n4*22 = " + dicionario.charAt((n4 * 22)) + ", n4*23 = " + dicionario.charAt((n4 * 23)));
+//        BruteForce bf22 = new BruteForce(dicionario, textoEncriptado, (n4 * 22), (n4 * 23));
+//        nBruteForce.add(bf22);
+//        nThread.add(new Thread(bf22));
+//        
+//        System.out.println("n4*23 = " + dicionario.charAt((n4 * 23)) + ", n4*24 = " + dicionario.charAt((n4 * 24)));
+//        BruteForce bf23 = new BruteForce(dicionario, textoEncriptado, (n4 * 23), (n4 * 24));
+//        nBruteForce.add(bf23);
+//        nThread.add(new Thread(bf23));
+//        
+//        System.out.println("n4*24 = " + dicionario.charAt((n4 * 24)) + ", n4*25 = " + dicionario.charAt((n4 * 25)));
+//        BruteForce bf24 = new BruteForce(dicionario, textoEncriptado, (n4 * 24), (n4 * 25));
+//        nBruteForce.add(bf24);
+//        nThread.add(new Thread(bf24));
+//        
+//        System.out.println("n4*25 = " + dicionario.charAt((n4 * 25)) + ", n4*26 = " + dicionario.charAt((n4 * 26)));
+//        BruteForce bf25 = new BruteForce(dicionario, textoEncriptado, (n4 * 25), (n4 * 26));
+//        nBruteForce.add(bf25);
+//        nThread.add(new Thread(bf25));
+//        
+//        System.out.println("n4*26 = " + dicionario.charAt((n4 * 26)) + ", n4*27 = " + dicionario.charAt((n4 * 27)));
+//        BruteForce bf26 = new BruteForce(dicionario, textoEncriptado, (n4 * 26), (n4 * 27));
+//        nBruteForce.add(bf26);
+//        nThread.add(new Thread(bf26));
+//        
+//        System.out.println("n4*27 = " + dicionario.charAt((n4 * 27)) + ", n4*28 = " + dicionario.charAt((n4 * 28)));
+//        BruteForce bf27 = new BruteForce(dicionario, textoEncriptado, (n4 * 27), (n4 * 28));
+//        nBruteForce.add(bf27);
+//        nThread.add(new Thread(bf27));
+//        
+//        System.out.println("n4*28 = " + dicionario.charAt((n4 * 28)) + ", n4*29 = " + dicionario.charAt((n4 * 29)));
+//        BruteForce bf28 = new BruteForce(dicionario, textoEncriptado, (n4 * 28), (n4 * 29));
+//        nBruteForce.add(bf28);
+//        nThread.add(new Thread(bf28));
+//        
+//        System.out.println("n4*29 = " + dicionario.charAt((n4 * 29)) + ", n4*30 = " + dicionario.charAt((n4 * 30)));
+//        BruteForce bf29 = new BruteForce(dicionario, textoEncriptado, (n4 * 29), (n4 * 30));
+//        nBruteForce.add(bf29);
+//        nThread.add(new Thread(bf29));
         
 //        System.out.println("n4*30, n4*31");
 //        BruteForce bf30 = new BruteForce(dicionario, textoEncriptado, (n4 * 30), (n4 * 31));
@@ -361,37 +362,55 @@ public class Main {
 //        nBruteForce.add(bf59);
 //        nThread.add(new Thread(bf59));
         
-        for (Thread th : nThread) {
-            th.start();
-        }
-
-        boolean terminado = false;
-        while (!terminado) {
-            for (BruteForce bf : nBruteForce) {
-                if (bf.finalizado) {
-                    terminado = true;
-                    textoDecriptado = bf.textoDecriptado;
-                    chave = bf.chave;
-                    nTentativas += bf.tentativas;
-                    nBruteForce.remove(bf);
-                    break;
-                }
-                //System.out.println("Tentativas: " + bf.tentativas);
-            }
-        }
-
-        for (BruteForce bf : nBruteForce) {
-            bf.pausa();
-            nTentativas += bf.tentativas;
+        Threads6 a1 = new Threads6(dicionario, textoEncriptado, 0, 10);
+        Threads6 a2 = new Threads6(dicionario, textoEncriptado, 10, 20);
+        Threads6 a3 = new Threads6(dicionario, textoEncriptado, 20, 30);
+        Threads6 a4 = new Threads6(dicionario, textoEncriptado, 30, 40);
+        Threads6 a5 = new Threads6(dicionario, textoEncriptado, 40, 50);
+        Threads6 a6 = new Threads6(dicionario, textoEncriptado, 50, 62);
+        
+        npThread.add(new Thread(a1));
+        npThread.add(new Thread(a2));
+        npThread.add(new Thread(a3));
+        npThread.add(new Thread(a4));
+        npThread.add(new Thread(a5));
+        npThread.add(new Thread(a6));
+        
+        for (Thread thsn : npThread) {
+            thsn.start();
         }
         
-        for (Thread th : nThread) {
-            try {
-                th.join();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        for (Thread th : nThread) {
+//            th.start();
+//        }
+
+//        boolean terminado = false;
+//        while (!terminado) {
+//            for (BruteForce bf : nBruteForce) {
+//                if (bf.finalizado) {
+//                    terminado = true;
+//                    textoDecriptado = bf.textoDecriptado;
+//                    chave = bf.chave;
+//                    nTentativas += bf.tentativas;
+//                    nBruteForce.remove(bf);
+//                    break;
+//                }
+//                //System.out.println("Tentativas: " + bf.tentativas);
+//            }
+//        }
+
+//        for (BruteForce bf : nBruteForce) {
+//            bf.pausa();
+//            nTentativas += bf.tentativas;
+//        }
+        
+//        for (Thread th : nThread) {
+//            try {
+//                th.join();
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
 
         long tempoFinal = System.currentTimeMillis();
         System.out.println("Mensagem: " + textoDecriptado);
