@@ -1,7 +1,12 @@
 Decriptar Mensagem
+
 Texto Encriptado: 6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==
+
 Texto Descriptado: 
-Chave: 
-Número de tentativas: 0
-Inicio: Wed Nov 09 21:16:21 BRST 2016 Termino: Wed Nov 09 21:16:21 BRST 2016
-Tempo de execução: 0,003 ms
+
+Chave: 12pingpongQ20009
+Inicio: Thu Nov 10 10:03:52 BRST 2016
+Parcial (Achou) Thu Nov 10 10:03:53 BRST 2016
+Termino: Thu Nov 10 10:03:53 BRST 2016
+Número de tentativas: 90
+Tempo de execução: 0,761 ms

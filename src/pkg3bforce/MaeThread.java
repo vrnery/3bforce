@@ -5,8 +5,13 @@
  */
 package pkg3bforce;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,38 +28,31 @@ public class MaeThread implements Runnable {
     public String textoDecriptado = "";
     public volatile boolean parado = false;
     public long tentativas = 0;
-    public long parcial = 0;
+    public long inicio;
 
-    public MaeThread(String dicionario, String character, String mensagem) {
+    public MaeThread(String dicionario, String character, String mensagem, long inicio) {
         this.dicionario = dicionario;
         this.chave = character;
         this.textoEncriptado = mensagem;
+        this.inicio = inicio;
     }
 
     @Override
     public void run() {
         try {
             for (int i = 0; i < 62; i++) {
-                this.filhaThread.add(new FilhaThread(this.dicionario, (this.chave + this.dicionario.charAt(i)), this.textoEncriptado));
+                this.filhaThread.add(new FilhaThread(this.dicionario, (this.chave + this.dicionario.charAt(i)), this.textoEncriptado, this.inicio));
                 this.fTh.add(new Thread(filhaThread.get(i)));
                 this.fTh.get(i).start();
             }
 
             while (!this.parado) {
                 for (FilhaThread ft : this.filhaThread) {
-                    if (this.parado) {
-                        System.out.println("Morrendo M: " + Thread.currentThread().getName());
+                    if (ft.parado) {
+                        this.tentativas += ft.tentativas;
+                        this.parado = true;
+                        this.filhaThread.remove(ft);
                         break;
-                    } else {
-                        if (ft.parado) {
-                            this.parcial = ft.parcial;
-                            this.chave = ft.chave;
-                            this.textoDecriptado = ft.textoDecriptado;
-                            this.tentativas += ft.tentativas;
-                            this.parado = true;
-                            this.filhaThread.remove(ft);
-                            break;
-                        }
                     }
                 }
             }

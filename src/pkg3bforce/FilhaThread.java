@@ -5,8 +5,14 @@
  */
 package pkg3bforce;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.Key;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import sun.misc.*;
@@ -24,12 +30,13 @@ public class FilhaThread implements Runnable {
     public String textoDecriptado = "";
     public volatile boolean parado = false;
     public long tentativas = 0;
-    public long parcial = 0;
+    public long inicio;
 
-    public FilhaThread(String dicionario, String chave, String mensagem) {
+    public FilhaThread(String dicionario, String chave, String mensagem, long inicio) {
         this.dicionario = dicionario;
         this.chave = chave;
         this.textoEncriptado = mensagem;
+        this.inicio = inicio;
     }
 
     @Override
@@ -62,9 +69,20 @@ public class FilhaThread implements Runnable {
                                 }
                                 if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
                                     try {
-                                        //System.out.println("String Chave: " + key);
-                                        this.parcial = System.currentTimeMillis();
                                         this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
                                         Thread.currentThread().wait();
                                     } catch (InterruptedException ex) {
                                         //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,7 +91,10 @@ public class FilhaThread implements Runnable {
                             }
                         }
                     }
+
                 }
+                String key = this.chave + this.dicionario.charAt(a);
+                System.out.println("Thread: " + Thread.currentThread().getName() + " Chave: " + key);
             }
         } catch (Exception ex) {
 
