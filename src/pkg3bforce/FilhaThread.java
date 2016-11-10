@@ -31,12 +31,14 @@ public class FilhaThread implements Runnable {
     public volatile boolean parado = false;
     public long tentativas = 0;
     public long inicio;
+    public String controladora;
 
-    public FilhaThread(String dicionario, String chave, String mensagem, long inicio) {
+    public FilhaThread(String dicionario, String chave, String mensagem, long inicio, String controladora) {
         this.dicionario = dicionario;
         this.chave = chave;
         this.textoEncriptado = mensagem;
         this.inicio = inicio;
+        this.controladora = controladora;
     }
 
     @Override
@@ -47,7 +49,227 @@ public class FilhaThread implements Runnable {
                     for (int c = 0; c < 62; c++) {
                         for (int d = 0; d < 62; d++) {
                             this.tentativas++;
-                            String key = this.chave + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.dicionario.charAt(d);
+                            String key = this.chave + this.controladora + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.dicionario.charAt(d);
+                            if (this.parado) {
+                                try {
+                                    System.out.println("Morrendo: " + Thread.currentThread().getName());
+                                    Thread.currentThread().wait();
+                                } catch (InterruptedException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else {
+                                byte[] cod = null;
+                                try {
+                                    cod = key.getBytes("UTF-8");
+                                } catch (UnsupportedEncodingException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                try {
+                                    textoDecriptado = decrypt(textoEncriptado, cod);
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                    try {
+                                        this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        Thread.currentThread().wait();
+                                    } catch (InterruptedException ex) {
+                                        //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }
+                            
+                            this.tentativas++;
+                            key = this.controladora + this.chave + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.dicionario.charAt(d);
+                            if (this.parado) {
+                                try {
+                                    System.out.println("Morrendo: " + Thread.currentThread().getName());
+                                    Thread.currentThread().wait();
+                                } catch (InterruptedException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else {
+                                byte[] cod = null;
+                                try {
+                                    cod = key.getBytes("UTF-8");
+                                } catch (UnsupportedEncodingException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                try {
+                                    textoDecriptado = decrypt(textoEncriptado, cod);
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                    try {
+                                        this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        Thread.currentThread().wait();
+                                    } catch (InterruptedException ex) {
+                                        //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }
+                            
+                            this.tentativas++;
+                            key = this.controladora + this.dicionario.charAt(a) + this.chave + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.dicionario.charAt(d);
+                            if (this.parado) {
+                                try {
+                                    System.out.println("Morrendo: " + Thread.currentThread().getName());
+                                    Thread.currentThread().wait();
+                                } catch (InterruptedException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else {
+                                byte[] cod = null;
+                                try {
+                                    cod = key.getBytes("UTF-8");
+                                } catch (UnsupportedEncodingException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                try {
+                                    textoDecriptado = decrypt(textoEncriptado, cod);
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                    try {
+                                        this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        Thread.currentThread().wait();
+                                    } catch (InterruptedException ex) {
+                                        //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }
+                            
+                            this.tentativas++;
+                            key = this.controladora + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.chave + this.dicionario.charAt(c) + this.dicionario.charAt(d);
+                            if (this.parado) {
+                                try {
+                                    System.out.println("Morrendo: " + Thread.currentThread().getName());
+                                    Thread.currentThread().wait();
+                                } catch (InterruptedException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else {
+                                byte[] cod = null;
+                                try {
+                                    cod = key.getBytes("UTF-8");
+                                } catch (UnsupportedEncodingException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                try {
+                                    textoDecriptado = decrypt(textoEncriptado, cod);
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                    try {
+                                        this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        Thread.currentThread().wait();
+                                    } catch (InterruptedException ex) {
+                                        //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }
+                            
+                            this.tentativas++;
+                            key = this.controladora + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.chave + this.dicionario.charAt(d);
+                            if (this.parado) {
+                                try {
+                                    System.out.println("Morrendo: " + Thread.currentThread().getName());
+                                    Thread.currentThread().wait();
+                                } catch (InterruptedException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else {
+                                byte[] cod = null;
+                                try {
+                                    cod = key.getBytes("UTF-8");
+                                } catch (UnsupportedEncodingException ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                try {
+                                    textoDecriptado = decrypt(textoEncriptado, cod);
+                                } catch (Exception ex) {
+                                    //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if ((!textoDecriptado.equals("")) && (textoDecriptado.contains("teste"))) {
+                                    try {
+                                        this.parado = true;
+                                        try {
+                                            FileWriter arq = new FileWriter("dados.txt");
+                                            PrintWriter gravar = new PrintWriter(arq);
+                                            gravar.println("Decriptar Mensagem\n");
+                                            gravar.println("Texto Encriptado: " + textoEncriptado + "\n");
+                                            gravar.println("Texto Descriptado: " + this.textoDecriptado + "\n");
+                                            gravar.println("Chave: " + key);
+                                            gravar.println("Inicio: " + new Date(this.inicio));
+                                            gravar.println("Parcial (Achou) " + new Date(System.currentTimeMillis()));
+                                            arq.close();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        Thread.currentThread().wait();
+                                    } catch (InterruptedException ex) {
+                                        //Logger.getLogger(FilhaThread.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }
+                            
+                            this.tentativas++;
+                            key = this.controladora + this.dicionario.charAt(a) + this.dicionario.charAt(b) + this.dicionario.charAt(c) + this.dicionario.charAt(d) + this.chave;
                             if (this.parado) {
                                 try {
                                     System.out.println("Morrendo: " + Thread.currentThread().getName());

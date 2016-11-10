@@ -31,6 +31,7 @@ public class Main {
         String dicionario = "";
         String chave = "12pingpongQ";
         String textoEncriptado = "6j7W7b51dLus8COS0tVzf8t4Qf7Ch2sO5wBP7eeyEmkW+mIT4eEdk+CejhqT7/t/Dbo2lQZlias7AMqw0OD9NNkkaZSRd2qbrxjlzClLdVClBf877N90JutLjxw7d9q9+MYbRzYJGkCEvUWFHF7gvg==";
+        //String textoEncriptado = "H5t7zrBnaIG8/7Bzw+8XPfpJEQ1TX7aQ7XxN31BZoAwZ7704dENBwLsJdmd5ePNFhJopGygr0IrAtT0jHClxK0nNa4BiXB17nlrqkJrYBsegrIKRdhG0ZSKZLX6j+Yh55GTgTgKjBXhedlgm0Ufjyhn0kP0pjvUiCa896gXvOvKg//98tZ7t4zGM+MjiQPLI";
         String textoDecriptado = "";
         long tentativas = 0;
 

@@ -41,7 +41,7 @@ public class MaeThread implements Runnable {
     public void run() {
         try {
             for (int i = 0; i < 62; i++) {
-                this.filhaThread.add(new FilhaThread(this.dicionario, (this.chave + this.dicionario.charAt(i)), this.textoEncriptado, this.inicio));
+                this.filhaThread.add(new FilhaThread(this.dicionario, this.chave, this.textoEncriptado, this.inicio, (this.dicionario.charAt(i) + "")));
                 this.fTh.add(new Thread(filhaThread.get(i)));
                 this.fTh.get(i).start();
             }
